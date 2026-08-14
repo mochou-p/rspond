@@ -1,0 +1,7 @@
+# mochou-p/rspond/Cargo.toml
+
+[package]
+name    = "rspond"
+version = "0.1.0"
+edition = "2024"
+

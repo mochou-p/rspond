@@ -1,0 +1,5 @@
+# mochou-p/rspond/.gitignore
+
+target/
+Cargo.lock
+
