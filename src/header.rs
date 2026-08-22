@@ -1,23 +1,21 @@
 // mochou-p/rspond/src/header.rs
 
-use super::{Connection, MimeType, Charset};
+use super::{Connection, MediaType};
 
 
 pub enum Header {
     Connection(Connection),
     ContentLength(usize),
-    ContentType(MimeType, Charset)
+    ContentType(MediaType)
 }
 
 impl Header {
     pub(super) fn build(&self) -> Vec<u8> {
-        let mut bytes = Vec::with_capacity(64);
-
         match self {
-            Self::Connection(connection) => {
-                bytes.extend(connection.build());
-            },
-            Self::ContentLength(count) => {
+            Self::Connection(connection)  => connection.build().to_vec(),
+            Self::ContentType(media_type) => media_type.build().to_vec(),
+            Self::ContentLength(count)    => {
+                let mut bytes = Vec::with_capacity(64);
                 bytes.extend(b"Content-Length: ");
 
                 let mut count = *count;
@@ -39,14 +37,10 @@ impl Header {
                         bytes.push(b'0' + digit as u8);
                     }
                 }
-            },
-            Self::ContentType(mime_type, charset) => {
-                bytes.extend(mime_type.build());
-                bytes.extend(charset  .build());
+
+                bytes
             }
         }
-
-        bytes
     }
 }
 

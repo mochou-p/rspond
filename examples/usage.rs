@@ -31,7 +31,7 @@ fn main() {
         .status_code(StatusCode::Successful(Successful::Ok))
         .headers(vec![
             Header::Connection(Connection::Close),
-            Header::ContentType(MimeType::Text(Text::Html), Charset::Utf8),
+            Header::ContentType(MediaType::Text(Text::Html, Charset::Utf8)),
             Header::ContentLength(body.len()),
         ])
         .body(body)

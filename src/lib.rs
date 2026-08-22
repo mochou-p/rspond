@@ -4,7 +4,7 @@ mod http_version;
 mod status_code;
 mod header;
 mod connection;
-mod mime_type;
+mod media_type;
 mod charset;
 
 pub use {
@@ -12,7 +12,7 @@ pub use {
     status_code::*,
     header::*,
     connection::*,
-    mime_type::*,
+    media_type::*,
     charset::*
 };
 
@@ -89,7 +89,7 @@ pub struct Response<'a> {
 
 impl Response<'_> {
     pub fn build(&self) -> Vec<u8> {
-        const CRLF: &'static [u8; 2] = b"\r\n";
+        const CRLF: &[u8; 2] = b"\r\n";
 
         let mut bytes = Vec::with_capacity(64 * self.headers.len() + self.body.len());
 
