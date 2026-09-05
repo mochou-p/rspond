@@ -4,6 +4,8 @@ use super::{Connection, MediaType};
 
 
 pub enum Header {
+    Custom(String, String),
+
     Connection(Connection),
     ContentLength(usize),
     ContentType(MediaType)
@@ -12,6 +14,7 @@ pub enum Header {
 impl Header {
     pub(super) fn build(&self) -> Vec<u8> {
         match self {
+            Self::Custom(name, value)     => format!("{name}: {value}").as_bytes().to_vec(),
             Self::Connection(connection)  => connection.build().to_vec(),
             Self::ContentType(media_type) => media_type.build().to_vec(),
             Self::ContentLength(count)    => {

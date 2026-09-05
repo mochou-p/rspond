@@ -32,7 +32,7 @@ impl Informational {
     fn build(&self) -> &'static [u8] {
         match self {
             Self::Continue           => b"100 Continue",
-            Self::SwitchingProtocols => b"101 SwitchingProtocols",
+            Self::SwitchingProtocols => b"101 Switching Protocols",
             Self::Processing         => b"102 Processing",
             Self::EarlyHints         => b"103 Early Hints"
         }

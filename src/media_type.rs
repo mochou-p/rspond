@@ -41,12 +41,12 @@ pub enum Application {
 impl Application {
     fn build(&self) -> &'static [u8] {
         match self {
-            Self::Binary => b"Content-Type: application/octet-stream; ",
-            Self::Gzip   => b"Content-Type: application/gzip; ",
-            Self::Json   => b"Content-Type: application/json; ",
-            Self::Php    => b"Content-Type: application/x-httpd-php; ",
-            Self::Xhtml  => b"Content-Type: application/xhtml+xml; ",
-            Self::Xml    => b"Content-Type: application/xml; "
+            Self::Binary => b"Content-Type: application/octet-stream",
+            Self::Gzip   => b"Content-Type: application/gzip",
+            Self::Json   => b"Content-Type: application/json",
+            Self::Php    => b"Content-Type: application/x-httpd-php",
+            Self::Xhtml  => b"Content-Type: application/xhtml+xml",
+            Self::Xml    => b"Content-Type: application/xml"
         }
     }
 }
@@ -64,13 +64,13 @@ pub enum Audio {
 impl Audio {
     fn build(&self) -> &'static [u8] {
         match self {
-            Self::Aac  => b"Content-Type: audio/aac; ",
-            Self::Midi => b"Content-Type: audio/midi; ",
-            Self::Mp3  => b"Content-Type: audio/mpeg; ",
-            Self::Mp4  => b"Content-Type: audio/mp4; ",
-            Self::Ogg  => b"Content-Type: audio/ogg; ",
-            Self::Wav  => b"Content-Type: audio/wav; ",
-            Self::Webm => b"Content-Type: audio/webm; "
+            Self::Aac  => b"Content-Type: audio/aac",
+            Self::Midi => b"Content-Type: audio/midi",
+            Self::Mp3  => b"Content-Type: audio/mpeg",
+            Self::Mp4  => b"Content-Type: audio/mp4",
+            Self::Ogg  => b"Content-Type: audio/ogg",
+            Self::Wav  => b"Content-Type: audio/wav",
+            Self::Webm => b"Content-Type: audio/webm"
         }
     }
 }
@@ -91,16 +91,16 @@ pub enum Image {
 impl Image {
     fn build(&self) -> &'static [u8] {
         match self {
-            Self::Apng   => b"Content-Type: image/apng; ",
-            Self::Avif   => b"Content-Type: image/avif; ",
-            Self::Bitmap => b"Content-Type: image/bmp; ",
-            Self::Gif    => b"Content-Type: image/gif; ",
-            Self::Icon   => b"Content-Type: image/vnd.microsoft.icon; ",
-            Self::Jpeg   => b"Content-Type: image/jpeg; ",
-            Self::Png    => b"Content-Type: image/png; ",
-            Self::Svg    => b"Content-Type: image/svg+xml; ",
-            Self::Tiff   => b"Content-Type: image/tiff; ",
-            Self::Webp   => b"Content-Type: image/webp; "
+            Self::Apng   => b"Content-Type: image/apng",
+            Self::Avif   => b"Content-Type: image/avif",
+            Self::Bitmap => b"Content-Type: image/bmp",
+            Self::Gif    => b"Content-Type: image/gif",
+            Self::Icon   => b"Content-Type: image/x-icon",
+            Self::Jpeg   => b"Content-Type: image/jpeg",
+            Self::Png    => b"Content-Type: image/png",
+            Self::Svg    => b"Content-Type: image/svg+xml",
+            Self::Tiff   => b"Content-Type: image/tiff",
+            Self::Webp   => b"Content-Type: image/webp"
         }
     }
 }
@@ -131,7 +131,7 @@ pub enum Video {
     Avi,
     Mp4,
     Mpeg,
-    MpegTs,
+    MpegStream,
     Ogg,
     Webm
 }
@@ -139,12 +139,12 @@ pub enum Video {
 impl Video {
     fn build(&self) -> &'static [u8] {
         match self {
-            Self::Avi    => b"Content-Type: video/x-msvideo; ",
-            Self::Mp4    => b"Content-Type: video/mp4; ",
-            Self::Mpeg   => b"Content-Type: video/mpeg; ",
-            Self::MpegTs => b"Content-Type: video/mp2t; ",
-            Self::Ogg    => b"Content-Type: video/ogg; ",
-            Self::Webm   => b"Content-Type: video/webm; "
+            Self::Avi        => b"Content-Type: video/x-msvideo",
+            Self::Mp4        => b"Content-Type: video/mp4",
+            Self::Mpeg       => b"Content-Type: video/mpeg",
+            Self::MpegStream => b"Content-Type: video/mp2t",
+            Self::Ogg        => b"Content-Type: video/ogg",
+            Self::Webm       => b"Content-Type: video/webm"
         }
     }
 }

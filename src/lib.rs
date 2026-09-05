@@ -89,7 +89,7 @@ pub struct Response<'a> {
 
 impl Response<'_> {
     pub fn build(&self) -> Vec<u8> {
-        const CRLF: &[u8; 2] = b"\r\n";
+        const CRLF: [u8; 2] = *b"\r\n";
 
         let mut bytes = Vec::with_capacity(64 * self.headers.len() + self.body.len());
 
